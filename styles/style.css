@@ -1,1 +1,323 @@
-/* место для вашего кода */
+/* Базовый сброс */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    color: #000;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none; /* Сбрасываем списки по умолчанию */
+}
+
+/* --- ШАПКА --- */
+.header {
+    width: 1100px;
+    height: 293px;     
+    margin: 0 auto;    
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center; 
+    padding: 0 50px;     
+}
+
+.header__menu {
+    justify-self: start; 
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    
+    /* ТРЕБОВАНИЕ ИЗ ЗАДАНИЯ */
+    list-style: circle; 
+    
+    padding-left: 20px; 
+    margin: 0;
+    gap: 25px; 
+}
+
+.menu__item {
+    white-space: nowrap; /* Запрещаем перенос текста */
+}
+
+/* Подчеркивание пунктиром в шапке */
+.menu__link {
+    border-bottom: 1px dashed #000;
+    padding-bottom: 2px;
+}
+
+.header__logo {
+    justify-self: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__logo-image {
+    width: 148px;
+    height: 105px;
+    object-fit: contain;
+}
+
+.header__address {
+    justify-self: end; 
+    width: 240px;      
+    font-style: normal; 
+    font-size: 18px;
+    line-height: 1.35;
+    display: flex;
+    flex-direction: column;
+    text-align: left; 
+}
+
+/* --- БАННЕР --- */
+.cover {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.cover__container {
+    position: relative; 
+    width: 1100px;
+    height: 757px;
+}
+
+.cover__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.cover__overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.cover__title {
+    position: absolute;
+    top: 165px;
+    left: 50px;
+    right: 50px; 
+    color: #fff;
+    font-size: 80px; 
+    font-weight: 700;
+    letter-spacing: 20px;
+    line-height: 1.15;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+}
+
+.cover__title-line { display: block; }
+.cover__title-line_left { text-align: left; }
+.cover__title-line_center { text-align: center; }
+.cover__title-line_right { text-align: right; }
+
+/* Нижняя плашка */
+.description {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 22px;
+    padding: 0 10px; 
+}
+
+.description__button {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 12px 25px;
+    font-family: inherit;
+    font-size: 22px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* --- СЕКЦИЯ ЛОТЫ --- */
+.lots {
+    width: 1052px; 
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.lots__title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 27px;
+    padding-left: 50px;
+}
+
+.lots__card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 334px); 
+    gap: 25px; 
+    justify-content: space-between;
+}
+
+.card {
+    position: relative;
+    width: 334px;
+    height: 596px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    padding: 40px;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Картинки карточек */
+.card_type_film { background-image: url('../images/card-lot-01.jpg'); }
+.card_type_book { background-image: url('../images/card-lot-02.jpg'); }
+.card_type_picture { background-image: url('../images/card-lot-03.jpg'); }
+
+/* Затемнение карточек */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.card__title, .card__text {
+    position: relative;
+    z-index: 2;
+}
+
+/* Сплошное подчеркивание в карточках */
+.card__title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-decoration: underline solid #fff;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    margin-bottom: 15px;
+}
+
+.card__text {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+/* Сплошное подчеркивание у ссылки */
+.lots__look-more-link {
+    display: inline-block;
+    margin-top: 38px;
+    margin-left: 40px;
+    font-size: 20px;
+    text-decoration: underline solid #000;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+/* --- СЕКЦИЯ ОБ АУКЦИОНЕ --- */
+.about {
+    width: 1052px;
+    margin: 120px auto 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.about__logo {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 50px;
+}
+
+.about__logo-image {
+    width: 140px;
+}
+
+.about__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.about__title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.about__text p {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+/* --- ПОДВАЛ --- */
+.footer {
+    width: 1100px;
+    margin: 150px auto 0;
+    padding-bottom: 50px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+}
+
+.footer__address {
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.35;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+}
+
+.menu_footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    list-style: none; /* Убираем кружочки в подвале для красоты */
+    padding-left: 0;
+}
+
+/* Сплошное подчеркивание в подвале */
+.menu_footer .menu__link {
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+}
+
+.footer__social-list {
+    justify-self: end;
+    display: flex;
+    gap: 15px;
+    padding-right: 50px;
+}
+
+.footer__social-icon {
+    width: 48px;
+    height: 48px;
+}
